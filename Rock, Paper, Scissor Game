@@ -1,0 +1,40 @@
+package com.packages;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Practice {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int i =0;
+        while (i < 8) {
+            System.out.println("Enter 1:Rock 2:Paper 3:Scissors");
+            int user = sc.nextInt();
+            Random r = new Random();
+            int ran = r.nextInt(3) + 1;
+            System.out.println("Computer: " +ran);
+            if(user==ran){
+                System.out.println("Match is Tie");
+            }
+            else if(user==1 && ran==2){
+                System.out.println("Computer win");
+            }
+            else if(user==1 && ran==3){
+                System.out.println("Congrats you win");
+            }
+            else if(user==2 && ran==1){
+                System.out.println("Congrats you win");
+            }
+            else if(user==2 && ran==3){
+                System.out.println("Computer win");
+            }
+            else if(user==3 && ran==1){
+                System.out.println("Computer win");
+            }
+            else if(user==3 && ran==2){
+                System.out.println("Congrats you win");
+            }
+            i++;
+        }
+    }
+}
