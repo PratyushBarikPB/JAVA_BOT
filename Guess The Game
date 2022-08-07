@@ -1,0 +1,62 @@
+package com.packages;
+
+import java.util.Random;
+import java.util.Scanner;
+
+class Guess_Game{
+    int r;
+    int user;
+    int counter=1;
+    Guess_Game(){
+        Random ran = new Random();
+        this.r=ran.nextInt(100);
+    }
+    
+    void input(int n){
+        this.user=n;
+    }
+    
+    int iscorrectnumber() {
+        if (user == r) {
+            return 0;
+        }
+        else if (user < r) {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    }
+
+    void counter(){
+        counter++;
+    }
+}
+
+public class Game {
+    public static void main(String[] args) {
+        Guess_Game obj=new Guess_Game();
+        int x;
+        while(true){
+            System.out.println("Guess the number btw 1-100");
+            Scanner sc = new Scanner(System.in);
+            x=sc.nextInt();
+            obj.input(x);
+           if(obj.iscorrectnumber()==-1){
+                System.out.println("You have entered a bigger number");
+                obj.counter();
+            }
+            
+            else if(obj.iscorrectnumber()==1){
+                System.out.println("You have entered a smaller number");
+                obj.counter();
+            }
+            
+            else if(obj.iscorrectnumber()==0){
+                System.out.println("Hurrey You Have Gussed it!");
+                System.out.println("Number of Attempts" +(obj.counter));
+                break;
+            }
+        }
+    }
+}
